@@ -434,7 +434,7 @@ void validate_detector(char *datacfg, char *cfgfile, char *weightfile, char *out
 {
     int j;
     list *options = read_data_cfg(datacfg);
-    char *valid_images = option_find_str(options, "valid", "data/train.list");
+    char *valid_images = option_find_str(options, "valid", "data/test.txt");
     char *name_list = option_find_str(options, "names", "data/names.list");
     char *prefix = option_find_str(options, "results", "results");
     char **names = get_labels(name_list);
@@ -592,7 +592,7 @@ void validate_detector_recall(char *datacfg, char *cfgfile, char *weightfile)
 
     //list *plist = get_paths("data/coco_val_5k.list");
     list *options = read_data_cfg(datacfg);
-    char *valid_images = option_find_str(options, "valid", "data/train.txt");
+    char *valid_images = option_find_str(options, "valid", "data/test.txt");
     list *plist = get_paths(valid_images);
     char **paths = (char **)list_to_array(plist);
 
@@ -679,7 +679,7 @@ float validate_detector_map(char *datacfg, char *cfgfile, char *weightfile, floa
 {
     int j;
     list *options = read_data_cfg(datacfg);
-    char *valid_images = option_find_str(options, "valid", "data/train.txt");
+    char *valid_images = option_find_str(options, "valid", "data/test.txt");
     char *difficult_valid_images = option_find_str(options, "difficult", NULL);
     char *name_list = option_find_str(options, "names", "data/names.list");
     int names_size = 0;
